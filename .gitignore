@@ -1,5 +1,4 @@
 __pycache__/
-private.py
+.env
 .vscode
 db.sqlite3
-secrets.py

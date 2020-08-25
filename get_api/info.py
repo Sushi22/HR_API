@@ -6,7 +6,8 @@ from selenium.webdriver.common.keys import Keys
 import passlib
 from passlib.hash import sha256_crypt
 from selenium.webdriver.chrome.options import Options
-from get_api.private import user_name,pass_word
+from decouple import config
+
 
 def hr_info():
     options=Options()
@@ -24,8 +25,8 @@ def hr_info():
 
     password=driver.find_element_by_xpath('//*[@id="input-2"]')
 
-    username.send_keys(user_name)
-    password.send_keys(pass_word)
+    username.send_keys(config('user_name'))
+    password.send_keys(config('pass_word'))
 
     driver.find_element_by_xpath('//*[@id="content"]/div/div/div/div[2]/div/div/div[2]/div/div/div[2]/div[1]/form/div[4]/button').click()
 
