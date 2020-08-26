@@ -7,18 +7,21 @@ import passlib
 from passlib.hash import sha256_crypt
 from selenium.webdriver.chrome.options import Options
 from decouple import config
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
 
 
 def hr_info():
     options=Options()
+    options.binary_location = GOOGLE_CHROME_BIN
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
     options.headless=True
+    
     user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'    
     options.add_argument('user-agent={0}'.format(user_agent))
 
 
-    driver=webdriver.Chrome(ChromeDriverManager(path="C:/Users/hp/Downloads/chromedriver.exe").install(),options=options)
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=chrome_options)
+  
     driver.get("https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login")
 
 
