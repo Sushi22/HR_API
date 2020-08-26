@@ -7,6 +7,7 @@ import passlib
 from passlib.hash import sha256_crypt
 from selenium.webdriver.chrome.options import Options
 from decouple import config
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def hr_info():
@@ -16,7 +17,7 @@ def hr_info():
     options.add_argument('user-agent={0}'.format(user_agent))
 
 
-    driver=webdriver.Chrome(executable_path="C:/Users/hp/Downloads/chromedriver.exe",options=options)
+    driver=webdriver.Chrome(ChromeDriverManager().install(),options=options)
     driver.get("https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login")
 
 
