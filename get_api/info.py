@@ -18,7 +18,7 @@ def hr_info():
     options.add_argument('user-agent={0}'.format(user_agent))
 
 
-    driver=webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),options=options)
+    driver=webdriver.Chrome(ChromeDriverManager(path="C:/Users/hp/Downloads/chromedriver.exe").install(),options=options)
     driver.get("https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login")
 
 
